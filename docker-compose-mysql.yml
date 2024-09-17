@@ -1,0 +1,20 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: toor #considering we are only running this container locally for testing, this is fine....
+      MYSQL_USER: databox
+      MYSQL_PASSWORD: batadox
+      MYSQL_DATABASE: databox_challange #create db on startup
+
+#since this is a test project we wont add a volume. if we remove the container our data is gone...
+
+# docker and docker-compose plugin should be installed
+# sudo docker compose -f docker-compose-mysql.yml up
+# verify that its running: sudo docker ps 
